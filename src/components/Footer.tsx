@@ -40,6 +40,9 @@ const Footer = () => {
               info@afritechcapital.com
             </p>
             <p className="text-sm text-muted-foreground">
+              +233-50-524-3514
+            </p>
+            <p className="text-sm text-muted-foreground">
               Accra, Ghana
             </p>
           </div>
