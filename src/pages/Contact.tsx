@@ -10,6 +10,10 @@ import { FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { toast } from 'sonner';
 
 const Contact = () => {
+  // Replace with your Google Apps Script Web App URL
+  // Follow the setup instructions in the console
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRnvvf4C_8E-uUVXFQv8eZ3TkLLXzucUyxKUQuwY3tE9Dwrcb6DEOvtTw_W-YfJbFB/exec';
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,10 +21,36 @@ const Contact = () => {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Thank you for reaching out! We\'ll get back to you soon.');
-    setFormData({ name: '', email: '', category: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          category: formData.category,
+          message: formData.message,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      toast.success('Thank you for reaching out! We\'ll get back to you soon.');
+      setFormData({ name: '', email: '', category: '', message: '' });
+    } catch (error) {
+      toast.error('Something went wrong. Please try again.');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -107,8 +137,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
