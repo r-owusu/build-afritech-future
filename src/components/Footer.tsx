@@ -40,7 +40,7 @@ const Footer = () => {
               info@afritechcapital.com
             </p>
             <p className="text-sm text-muted-foreground">
-              +233-50-524-3514
+              +233-24-350-3268
             </p>
             <p className="text-sm text-muted-foreground">
               Accra, Ghana
