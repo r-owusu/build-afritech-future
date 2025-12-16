@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, TrendingUp, Sprout, Heart, Cpu, Zap } from 'lucide-react';
 import heroImage from '@/assets/hero-image.jpg';
+import useScrollReveal from '@/hooks/use-scroll-reveal';
 
 const Home = () => {
   const sectors = [
@@ -13,46 +14,49 @@ const Home = () => {
     { icon: <Zap className="h-8 w-8" />, name: 'Green Energy', description: 'Sustainable power solutions' },
   ];
 
+  const heroReveal = useScrollReveal();
+
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 gradient-hero opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+          <div className="flex flex-col items-center justify-center text-center gap-6">
             {/* Text Content */}
-            <div className="animate-fade-in">
+            {/* use scroll reveal to animate when in view */}
+            <div
+              ref={heroReveal.ref as any}
+              className={`${heroReveal.revealed ? 'animate-slide-up' : 'opacity-0 translate-y-6'} max-w-3xl`}
+            >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
-                Empowering African Founders to Raise Capital
+                <span className="whitespace-nowrap">Empowering African Founders</span> to Raise Capital
               </h1>
               <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8">
                 Afritech Capital Ghana helps founders prepare for successful fundraising through expert strategy, financial modeling, and compelling pitch decks.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link to="/programs">
-                  <Button size="lg" variant="secondary" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className={`w-full sm:w-auto ${heroReveal.revealed ? 'animate-pop-in' : 'opacity-0'}`}
+                  >
                     Our Services
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className={`w-full sm:w-auto bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 ${heroReveal.revealed ? 'animate-pop-in delay-150' : 'opacity-0'}`}
+                  >
                     Get Started
                   </Button>
                 </Link>
-              </div>
-            </div>
-
-            {/* Hero Image */}
-            <div className="animate-slide-up hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={heroImage} 
-                  alt="African tech founders collaborating on innovative startup solutions"
-                  className="w-full h-auto object-cover"
-                />
               </div>
             </div>
           </div>
@@ -60,7 +64,7 @@ const Home = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center animate-slide-up">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Our Mission</h2>
@@ -75,7 +79,7 @@ const Home = () => {
       </section>
 
       {/* Focus Sectors */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Industries We Support</h2>
@@ -101,7 +105,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-12 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Let's Build Together</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
