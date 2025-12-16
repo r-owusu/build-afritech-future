@@ -19,11 +19,11 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 gradient-hero opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
         
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
           <div className="flex flex-col items-center justify-center text-center gap-6">
             {/* Text Content */}
             {/* use scroll reveal to animate when in view */}
@@ -32,7 +32,7 @@ const Home = () => {
               className={`${heroReveal.revealed ? 'animate-slide-up' : 'opacity-0 translate-y-6'} max-w-3xl`}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
-                <span className="whitespace-nowrap">Empowering African Founders</span> to Raise Capital
+                <span className="md:whitespace-nowrap">Empowering African Founders</span> to Raise Capital
               </h1>
               <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8">
                 Afritech Capital Ghana helps founders prepare for successful fundraising through expert strategy, financial modeling, and compelling pitch decks.
