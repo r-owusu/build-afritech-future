@@ -179,7 +179,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex space-x-4">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-smooth">
+                    <a href="https://www.linkedin.com/in/samuel-baah-9a8500192?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-smooth">
                       <FaLinkedin className="h-5 w-5" />
                     </a>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-3 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-smooth">
