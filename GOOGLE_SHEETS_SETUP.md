@@ -1,6 +1,6 @@
 # Google Sheets Contact Form Setup
 
-Follow these steps to connect your contact form to Google Sheets:
+Follow these steps to connect the contact form to Google Sheets:
 
 ## Step 1: Create a Google Sheet
 

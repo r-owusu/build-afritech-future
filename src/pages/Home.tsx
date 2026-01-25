@@ -1,9 +1,42 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, TrendingUp, Sprout, Heart, Cpu, Zap } from 'lucide-react';
 import heroImage from '@/assets/hero-image.jpg';
 import useScrollReveal from '@/hooks/use-scroll-reveal';
+
+const TorchHeading = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+  const [pos, setPos] = useState({ x: -200, y: -200 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLHeadingElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setPos({ x: -200, y: -200 });
+  };
+
+  return (
+    <h1
+      className={className}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        backgroundImage: `radial-gradient(circle 150px at ${pos.x}px ${pos.y}px, hsl(var(--accent)) 10%, hsl(var(--primary-foreground)) 80%)`,
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}
+    >
+      {children}
+    </h1>
+  );
+};
 
 const Home = () => {
   const sectors = [
@@ -22,18 +55,18 @@ const Home = () => {
       <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 gradient-hero opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
-        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
           <div className="flex flex-col items-center justify-center text-center gap-6">
             {/* Text Content */}
             {/* use scroll reveal to animate when in view */}
             <div
               ref={heroReveal.ref as any}
-              className={`${heroReveal.revealed ? 'animate-slide-up' : 'opacity-0 translate-y-6'} max-w-3xl`}
+              className={`${heroReveal.revealed ? 'animate-slide-up' : 'opacity-0 translate-y-6'} max-w-5xl`}
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
-                <span className="md:whitespace-nowrap">Empowering African Founders</span> to Raise Capital
-              </h1>
+              <TorchHeading className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 cursor-default">
+                Empowering African Founders <br className="hidden md:block" /> to Raise Capital
+              </TorchHeading>
               <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8">
                 Afritech Capital Ghana helps founders prepare for successful fundraising through expert strategy, financial modeling, and compelling pitch decks.
               </p>
@@ -69,9 +102,9 @@ const Home = () => {
           <div className="max-w-3xl mx-auto text-center animate-slide-up">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Our Mission</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We empower African founders to successfully raise capital by providing expert business strategy, 
-              financial modeling, compelling investor pitch decks, and fundraising guidance. Our focus is on 
-              helping founders articulate their vision, demonstrate their potential, and secure the funding 
+              We empower African founders to successfully raise capital by providing expert business strategy,
+              financial modeling, compelling investor pitch decks, and fundraising guidance. Our focus is on
+              helping founders articulate their vision, demonstrate their potential, and secure the funding
               they need to build solutions that drive real impact across the continent.
             </p>
           </div>
@@ -87,7 +120,7 @@ const Home = () => {
               Helping founders across key technology sectors raise capital
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {sectors.map((sector, index) => (
               <Card key={index} className="hover:shadow-lg transition-smooth animate-slide-up hover:scale-105">
