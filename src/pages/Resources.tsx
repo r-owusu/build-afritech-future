@@ -29,11 +29,11 @@ const Resources = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-8">
-                        Monthly Reports
+                        Monthly Research Articles
                     </h1>
 
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Stay updated with our latest insights, comprehensive reports, and strategic analysis of the African tech landscape.
+                        Stay updated with our latest insights, comprehensive articles, and strategic analysis of the African tech landscape.
                     </p>
 
                     {/* Coming Soon Section */}
