@@ -14,7 +14,7 @@ const Navigation = () => {
     { to: '/about', label: 'About' },
     { to: '/portfolio', label: 'Success Stories' },
     { to: '/programs', label: 'Services' },
-    { to: '/resources', label: 'Resources' },
+    { to: '/articles', label: 'Articles' },
     { to: '/contact', label: 'Contact' },
   ];
 
@@ -35,8 +35,8 @@ const Navigation = () => {
                 key={link.to}
                 to={link.to}
                 className={`text-sm font-medium transition-smooth ${isActive(link.to)
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
                   }`}
               >
                 {link.label}
@@ -79,8 +79,8 @@ const Navigation = () => {
                 to={link.to}
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-smooth ${isActive(link.to)
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                  ? 'bg-primary/10 text-primary'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   }`}
               >
                 {link.label}
