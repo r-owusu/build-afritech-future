@@ -82,6 +82,6 @@ In Ghana, that process is still unfolding. The role of ecosystem builders become
 
 If the future of Ghana’s startup ecosystem is to be realized, several shifts will be necessary. Local capital must become more engaged, not as passive observers but as active participants. Founder education must evolve beyond ideation to include the disciplines of scaling and governance. Policy frameworks must align more closely with the realities of innovation, reducing friction while encouraging experimentation.
 
-Above all, the ecosystem must embrace a more nuanced narrative—one that resists the temptation of uncritical optimism without surrendering to cynicism. Because the truth is this: Ghana’s startup ecosystem is neither a mirage nor a finished product. It is a work in progress, shaped by ambition, constrained by reality, and defined by the tension between the two. Perhaps that tension is not a weakness, but its most generative force.`
+Above all, the ecosystem must embrace a more nuanced narrative one that resists the temptation of uncritical optimism without surrendering to cynicism. Because the truth is this: Ghana’s startup ecosystem is neither a mirage nor a finished product. It is a work in progress, shaped by ambition, constrained by reality, and defined by the tension between the two. Perhaps that tension is not a weakness, but its most generative force.`
     }
 ];
